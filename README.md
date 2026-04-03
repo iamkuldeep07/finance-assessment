@@ -2,7 +2,9 @@
 # 📊 Finance Dashboard Backend API
 
 **An enterprise-grade, secure RESTful API** built with Node.js, Express, and MongoDB.
-This backend powers a modern financial dashboard with secure OTP-based onboarding, robust Role-Based Access Control (RBAC), JWT authentication, and high-performance MongoDB aggregation pipelines for real-time analytics.
+This backend powers a modern financial dashboard with secure OTP-based onboarding,
+robust Role-Based Access Control (RBAC), JWT authentication, and high-performance MongoDB aggregation
+pipelines for real-time analytics.
 
 ---
 
@@ -64,7 +66,7 @@ Create a `.env` file in the root directory:
 
 ```env
 NODE_ENV=development
-PORT=5000
+PORT=9000
 FRONTEND_URL=http://localhost:3000
 
 # Database
