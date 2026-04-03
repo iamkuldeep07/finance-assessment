@@ -1,0 +1,679 @@
+{
+  "info": {
+    "_postman_id": "4c0aad26-9f42-4a31-986c-8da6d2e7c92f",
+    "name": "Finance Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "40330021"
+  },
+  "item": [
+    {
+      "name": "AUTH ROUTE",
+      "item": [
+        {
+          "name": "REGISTER",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Kuldeep Chaudhary\",\n    \"email\": \"kuldeep45.kd@gmail.com\",\n    \"password\": \"Password@123\",\n    \"role\": \"viewer\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "VERIFY OTP",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"kuldeep45.kd@gmail.com\",\n    \"otp\": \"875459\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/auth/verify-otp",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "verify-otp"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "LOGIN",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"kuldeep45.kd@gmail.com\",\n    \"password\": \"Password@123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "LOGOUT",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/auth/logout",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "REFRESH TOKEN",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"kuldeep45.kd@gmail.com\",\n    \"password\": \"Password@123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/auth/refresh",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "refresh"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "USER ROUTE",
+      "item": [
+        {
+          "name": "MY PROFILE",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2ZjMmJjMTcwYTJkMjIzZmM0ZDM3YyIsImlhdCI6MTc3NTIyNTAzNywiZXhwIjoxNzc1MjI1OTM3fQ.VQGw0v2N30K2hYS1Zlg2RIzX9CP7YzH_ck6-e9NXzmo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/users/profile",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UPDATE PROFILE",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2ZjMmJjMTcwYTJkMjIzZmM0ZDM3YyIsImlhdCI6MTc3NTIyNjU0NiwiZXhwIjoxNzc1MjI3NDQ2fQ.sZ45zvbAA4d8iy014I5I8G25i0uA10th6tSMm6p1Lzw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Kuldeep\",\n    \"role\": \"admin\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/users/profile",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CHANGE PASSWORD",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2ZjMmJjMTcwYTJkMjIzZmM0ZDM3YyIsImlhdCI6MTc3NTIyNjczOSwiZXhwIjoxNzc1MjI3NjM5fQ.JyrMI4q_ctFSY_BjnD3BMPbFgXbu8FOQYys7PxiefOg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"oldPassword\": \"Password@123\",\n    \"newPassword\": \"NewPassword@123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/users/change-password",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "change-password"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "FINANCE RECORD ROUTE",
+      "item": [
+        {
+          "name": "CREATE RECORD",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2ZjMmJjMTcwYTJkMjIzZmM0ZDM3YyIsImlhdCI6MTc3NTIyNjczOSwiZXhwIjoxNzc1MjI3NjM5fQ.JyrMI4q_ctFSY_BjnD3BMPbFgXbu8FOQYys7PxiefOg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"amount\": 1500,\n    \"type\": \"income\",\n    \"category\": \"Freelance\",\n    \"date\": \"2023-10-01\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/records",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "records"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET ALL RECORDS",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2ZjMmJjMTcwYTJkMjIzZmM0ZDM3YyIsImlhdCI6MTc3NTIyNjczOSwiZXhwIjoxNzc1MjI3NjM5fQ.JyrMI4q_ctFSY_BjnD3BMPbFgXbu8FOQYys7PxiefOg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"oldPassword\": \"Password@123\",\n    \"newPassword\": \"NewPassword@123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/records?type=income&limit=5&page=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "records"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "income"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UPDATE RECORD",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2ZjMmJjMTcwYTJkMjIzZmM0ZDM3YyIsImlhdCI6MTc3NTIyNjczOSwiZXhwIjoxNzc1MjI3NjM5fQ.JyrMI4q_ctFSY_BjnD3BMPbFgXbu8FOQYys7PxiefOg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"amount\" : \"2500\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/records/69cfd0b97893aa0079b67547",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "records",
+                "69cfd0b97893aa0079b67547"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE RECORD",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2ZjMmJjMTcwYTJkMjIzZmM0ZDM3YyIsImlhdCI6MTc3NTIyNjczOSwiZXhwIjoxNzc1MjI3NjM5fQ.JyrMI4q_ctFSY_BjnD3BMPbFgXbu8FOQYys7PxiefOg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"amount\" : \"2500\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/records/69cfd0b97893aa0079b67547",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "records",
+                "69cfd0b97893aa0079b67547"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "DASHBOARD ROUTE",
+      "item": [
+        {
+          "name": "GET SUMMARY",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2ZjMmJjMTcwYTJkMjIzZmM0ZDM3YyIsImlhdCI6MTc3NTIzMTY3NCwiZXhwIjoxNzc1MjMyNTc0fQ.494V0P1qfdUV_sE7WkdT4RXWLPviYIrWORa7ID-phWo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"oldPassword\": \"Password@123\",\n    \"newPassword\": \"NewPassword@123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/dashboard/summary?startDate=2025-09-01&endDate=2026-12-31",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "dashboard",
+                "summary"
+              ],
+              "query": [
+                {
+                  "key": "startDate",
+                  "value": "2025-09-01"
+                },
+                {
+                  "key": "endDate",
+                  "value": "2026-12-31"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET MONTHLY TRENDS",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2ZjMmJjMTcwYTJkMjIzZmM0ZDM3YyIsImlhdCI6MTc3NTIzMTY3NCwiZXhwIjoxNzc1MjMyNTc0fQ.494V0P1qfdUV_sE7WkdT4RXWLPviYIrWORa7ID-phWo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9000/api/v1/dashboard/monthly-trends",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "dashboard",
+                "monthly-trends"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ADMIN ROUTE",
+      "item": [
+        {
+          "name": "GET ALL USERS",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2ZmNzAyYjVjNTZhZGQzZjk0NzZlNyIsImlhdCI6MTc3NTIzNzcxMywiZXhwIjoxNzc1MjM4NjEzfQ.P71JyWNU_UKjIvxK3CmMYCkaNvg-i6iE-LwPzNy4U7s",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"oldPassword\": \"Password@123\",\n    \"newPassword\": \"NewPassword@123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CHANGE USER ROLE",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2ZmNzAyYjVjNTZhZGQzZjk0NzZlNyIsImlhdCI6MTc3NTIzNzcxMywiZXhwIjoxNzc1MjM4NjEzfQ.P71JyWNU_UKjIvxK3CmMYCkaNvg-i6iE-LwPzNy4U7s",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"role\": \"analyst\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/users/69cff702b5c56add3f9476e8/role",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "69cff702b5c56add3f9476e8",
+                "role"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DEACTIVATE USER",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2ZmNzAyYjVjNTZhZGQzZjk0NzZlNyIsImlhdCI6MTc3NTIzNzcxMywiZXhwIjoxNzc1MjM4NjEzfQ.P71JyWNU_UKjIvxK3CmMYCkaNvg-i6iE-LwPzNy4U7s",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"isActive\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/users/69cff702b5c56add3f9476e8/status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "69cff702b5c56add3f9476e8",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
